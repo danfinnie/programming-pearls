@@ -29,6 +29,10 @@ RSpec.describe "Column 3" do
       it "works for may 28 2015" do
         expect(thingy.day_of_week(2015, 5, 28)).to eq(Column3Problem4::THURSDAY)
       end
+
+      it "works for dates before the known monday" do
+        expect(thingy.day_of_week(2015, 3, 10)).to eq(Column3Problem4::TUESDAY)
+      end
     end
   end
 end
