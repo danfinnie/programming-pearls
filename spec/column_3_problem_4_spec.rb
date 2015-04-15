@@ -11,6 +11,10 @@ RSpec.describe "Column 3" do
       it "works with dates spanning a year boundary" do
         expect(thingy.date_distance(2014, 12, 30, 2015, 1, 2)).to eq(3)
       end
+
+      it "works with dates seperated by more than a year" do
+        expect(thingy.date_distance(2014, 12, 30, 2016, 1, 2)).to eq(3+365)
+      end
     end
   end
 end
