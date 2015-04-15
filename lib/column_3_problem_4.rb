@@ -16,28 +16,14 @@ class Column3Problem4
   ]
 
   def date_distance(y1, m1, d1, y2, m2, d2)
-    year_distance(y2, y1) + month_distance(m2, m1) + day_distance(d2, d1)
+    x1 = days_since_start_of_time(y1, m1, d1)
+    x2 = days_since_start_of_time(y2, m2, d2)
+    x2 - x1
   end
 
   private
 
-  def year_distance(y2, y1)
-    365 * (y2 - y1)
-  end
-
-  def month_distance(m2, m1)
-    d = 0;
-    (m1+1).upto(m2) do |i|
-      d += month_length(i)
-    end
-    d
-  end
-
-  def day_distance(d2, d1)
-    d2 - d1
-  end
-
-  def month_length(i)
-    MONTH_LENGTHS[i - 1]
+  def days_since_start_of_time(y, m, d)
+    y * 365 + MONTH_LENGTHS[0...m].inject(&:+) + d
   end
 end
