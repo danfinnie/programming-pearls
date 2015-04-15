@@ -34,5 +34,17 @@ RSpec.describe "Column 3" do
         expect(thingy.day_of_week(2015, 3, 10)).to eq(Column3Problem4::TUESDAY)
       end
     end
+
+    describe "#cal" do
+      it "works for April 2015" do
+        expect(thingy.cal(2015, 4)).to eq <<-EOT.rstrip
+        1  2  3  4  5
+  6  7  8  9 10 11 12
+ 13 14 15 16 17 18 19
+ 20 21 22 23 24 25 26
+ 27 28 29 30
+        EOT
+      end
+    end
   end
 end

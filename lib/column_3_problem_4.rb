@@ -33,6 +33,20 @@ class Column3Problem4
     date_distance(2015, 4, 13, y, m, d) % 7
   end
 
+  def cal(y, m)
+    start_day = day_of_week(y, m, 1)
+    ret = " " * 3 * start_day
+    days_in_month = MONTH_LENGTHS[m - 1]
+    (1..days_in_month).each do |i|
+      ret += "%3d" % [i]
+
+      if (day_of_week(y, m, i) == SUNDAY)
+        ret += "\n"
+      end
+    end
+    ret.rstrip
+  end
+
   private
 
   def days_since_start_of_time(y, m, d)
